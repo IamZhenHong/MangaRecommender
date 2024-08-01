@@ -22,11 +22,17 @@ def convert_single_to_double_quotes(image_data_str):
   return image_data_str.replace("'", '"')
 
 
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework import status
+
+# Import your serializer and predict function
+
 class GetRecommendationsView(APIView):
-  def post(self, request):
-    title = request.data.get('manga_title')
+  def get(self, request):
+    title = request.query_params.get('manga_title')
     if not title:
-      return Response({'error': 'Missing manga_title in request body'}, status=status.HTTP_400_BAD_REQUEST)
+      return Response({'error': 'Missing manga_title in query parameters'}, status=status.HTTP_400_BAD_REQUEST)
 
     # Call the predict function
     recommendations_df = predict(title)
@@ -47,10 +53,13 @@ class GetRecommendationsView(APIView):
         image_url = image_data['jpg']['image_url']
         rec['image_url'] = image_url
         print(image_url)
+
     # Serialize data (if using a serializer)
     serializer = RecommendationSerializer(recommendations, many=True)
     serialized_data = serializer.data
 
     print(serialized_data)
-
-    return Response(serialized_data)
+    json_data = json.dumps(serialized_data)
+    print("asdfasfsf")
+    print(json_data)
+    return Response(json_data)
