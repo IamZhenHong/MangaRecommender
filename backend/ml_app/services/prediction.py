@@ -32,7 +32,7 @@ def predict(title):
     # Extract similarity scores from sig and sort
     sig = sorted(sig, key=lambda x: x[1], reverse=True)
 # Scores of the 5 most similar books 
-    sig = sig[1:6]# Book indicies
+    sig = sig[1:10]# Book indicies
     movie_indices = [i[0] for i in sig]
    
     # Top 5 book recommendation
