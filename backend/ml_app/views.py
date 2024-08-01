@@ -42,7 +42,7 @@ class GetRecommendationsView(APIView):
       return Response({'error': 'Error generating recommendations'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
     # Extract titles and image URLs
-    recommendations = recommendations_df[['title', 'images', 'score']].to_dict('records')
+    recommendations = recommendations_df[['title', 'images', 'score','url']].to_dict('records')
 
     # Extract image_url directly during conversion (if 'jpg' key exists)
     for rec in recommendations:

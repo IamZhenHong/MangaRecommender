@@ -26,12 +26,12 @@ const App = () => {
       searchMangas('Berserk');
       
       }
-  , [mangas]);
-  console.log(mangas)
+  , []);
+
 
   return (
       <div className="app">
-          <h1> MangaLand </h1>
+          <h1> MangaRecommender </h1>
           <input
             placeholder = "Search for a manga"
             value = {searchTerm}

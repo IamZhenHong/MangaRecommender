@@ -13,7 +13,11 @@ const MangaCard = ({ manga }) => {
 
             <div>
                 <span> {manga.Type} </span>
-                <h3>{manga.title}</h3>
+                <h3>
+                    <a href={manga.url} target="_blank" rel="noreferrer noopener">
+                        {manga.title}
+                    </a>
+                </h3>
             </div>
         </div>
     )
