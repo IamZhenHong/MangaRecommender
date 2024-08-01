@@ -3,7 +3,7 @@ import { useState,useEffect } from "react";
 import searchIcon from './search.svg';
 import MangaCard from './MangaCard';
 import api from "./api";
-
+import './App.css';
 const App = () => {
   const [mangas, setMangas] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
@@ -47,9 +47,9 @@ const App = () => {
               mangas?.length > 0
               ? (
                   <div className = "container">
-                      <h1>{mangas[0].title}</h1>
+                      
                       { mangas.map((manga) => (
-                          <MangaCard Manga = {manga} />
+                          <MangaCard manga = {manga} />
                       ))}
                   </div>
               ) : (

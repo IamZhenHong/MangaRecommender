@@ -1,17 +1,19 @@
 import React from 'react';
 
-const MangaCard = ({ Manga }) => {
+const MangaCard = ({ manga }) => {
     return (
-        <div className = "Manga">
-            
+        <div className = "manga">
+            <div>
+                <p> {manga.score} </p>
+            </div>
             
             <div>
-                <img src = {Manga.image_url !== 'N/A' ? Manga.image_url : 'https://via.placeholder.com/400'} alt = "Manga poster" />
+                <img src = {manga.image_url !== 'N/A' ? manga.image_url : 'https://via.placeholder.com/400'} alt = "Manga poster" />
             </div>
 
             <div>
-                <span> {Manga.Type} </span>
-                <h3>{Manga.title}</h3>
+                <span> {manga.Type} </span>
+                <h3>{manga.title}</h3>
             </div>
         </div>
     )

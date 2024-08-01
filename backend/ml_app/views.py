@@ -42,7 +42,7 @@ class GetRecommendationsView(APIView):
       return Response({'error': 'Error generating recommendations'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
     # Extract titles and image URLs
-    recommendations = recommendations_df[['title', 'images']].to_dict('records')
+    recommendations = recommendations_df[['title', 'images', 'score']].to_dict('records')
 
     # Extract image_url directly during conversion (if 'jpg' key exists)
     for rec in recommendations:
@@ -52,6 +52,7 @@ class GetRecommendationsView(APIView):
         image_data = json.loads(image_data_str)
         image_url = image_data['jpg']['image_url']
         rec['image_url'] = image_url
+        # rec['score'] = int(float(rec['score']))
         print(image_url)
 
     # Serialize data (if using a serializer)
@@ -60,6 +61,5 @@ class GetRecommendationsView(APIView):
 
     print(serialized_data)
     json_data = json.dumps(serialized_data)
-    print("asdfasfsf")
     print(json_data)
     return Response(json_data)
