@@ -36,9 +36,7 @@ def predict(title):
     movie_indices = [i[0] for i in sig]
    
     # Top 5 book recommendation
-    rec = data[['title']].iloc[movie_indices]
-
-    return rec
+    return data.iloc[movie_indices]
     
     # It reads the top 5 recommend book url and print the images
     
