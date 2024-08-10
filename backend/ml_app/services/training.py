@@ -23,7 +23,7 @@ import joblib
 nltk.download('stopwords')
 
 # Reading the file
-df = pd.read_csv("manga_info.csv")
+df = pd.read_csv("backend/manga_info.csv")
 
 
 #Reading the first five records
