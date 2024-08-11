@@ -75,7 +75,7 @@ def predict(title):
     filename = "downloaded_cosine_sim_synopsis.pkl"  # Choose a desired filename
 
     
-
+    cosine_sim_synopsis = 'ml_app/services/downloaded_cosine_sim_synopsis.pkl'
     
 
     sg = joblib.load(cosine_sim_synopsis)
