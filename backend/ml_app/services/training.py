@@ -35,7 +35,7 @@ print(df.shape)
 # # Genre distribution
 # df['genre'].value_counts().plot(x = 'genre', y ='count', kind = 'bar', figsize = (10,5)  )
 
-print(df['synopsis'] [2464])
+
 
 df['word_count'] = df['synopsis'].apply(lambda x: len(str(x).split()))
 
